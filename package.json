@@ -1,7 +1,6 @@
 {
-  "name": "emptyproject",
+  "name": "ruteplovoz",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --mode development --watch",
@@ -34,7 +33,19 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "core-js": "^3.3.4",
-    "html-loader": "^0.5.5"
-  }
+    "html-loader": "^0.5.5",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreuzfeur/ruteplovoz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kreuzfeur/ruteplovoz/issues"
+  },
+  "homepage": "https://github.com/kreuzfeur/ruteplovoz#readme",
+  "description": ""
 }
