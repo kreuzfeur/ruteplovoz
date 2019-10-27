@@ -1,5 +1,413 @@
-@import 'bootstrap';
-@font-face {
-    font-family: 'Montserrat';
-    src: url("../fonts/Montserrat-Black.ttf");
+@import "bootstrap";
+@import "./fonts.scss";
+@import "./variables.scss";
+
+header {
+  background: #ff840b;
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+  img {
+    max-width: 180px;
+  }
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    .burger {
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      align-items: center;
+      span {
+        height: 2px;
+        background: #fff;
+        width: 100%;
+        display: block;
+      }
+      &:before,
+      &:after {
+        transition: $transition;
+        content: "";
+        display: block;
+        height: 2px;
+        background: #fff;
+        width: 20px;
+        position: absolute;
+      }
+      &:before {
+        bottom: 0;
+        transform: rotate(0deg);
+      }
+      &:after {
+        top: 0;
+        transform: rotate(0deg);
+      }
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+    address {
+      font-size: 16px;
+      margin: 0;
+      color: #fff;
+      display: none;
+      width: 100%;
+      span,
+      a {
+        position: relative;
+        padding-left: 30px;
+        &:before {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          left: 0;
+          bottom: 0;
+          position: absolute;
+          background-position: center;
+          background-size: cover;
+          margin: auto;
+        }
+      }
+      a {
+        &:before {
+          background: url("../img/mail.png") no-repeat;
+        }
+      }
+      span {
+        &:before {
+          background: url("../img/phone.png") no-repeat;
+        }
+      }
+      justify-content: space-between;
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    }
+    .active {
+      &:before,
+      &:after {
+        top: 50%;
+      }
+      &:before {
+        transform: rotate(-45deg);
+      }
+      &:after {
+        transform: rotate(45deg);
+      }
+      span {
+        display: none;
+      }
+    }
+    ul {
+      z-index: 2;
+      position: fixed;
+      top: 46px;
+      right: -110vw;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(50px);
+      height: calc(100vh - 46px);
+      transition: $transition;
+      .menuLogo {
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      li {
+        font-weight: 600;
+        color: #fff;
+        background: #ff840b;
+        text-transform: uppercase;
+        font-size: 18px;
+        padding: 20px 0;
+        width: 100vw;
+        text-align: center;
+        margin-bottom: 3px;
+        &:last-child() {
+          margin-bottom: none;
+        }
+        cursor: pointer;
+      }
+    }
+    .mobileMenuActive {
+      transition: $transition;
+      right: 0;
+    }
+  }
+}
+.desktopMenu {
+  display: none;
+  ul {
+    margin: 0 auto;
+    max-width: 500px;
+    color: #ff840b;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    li {
+      transition: $transition;
+      cursor: pointer;
+      padding: 10px 20px;
+      &:hover {
+        background-color: #ff840b;
+        color: #fff;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    display: block;
+  }
+  .desktopMenuActive {
+    background-color: #ff840b;
+    color: #fff;
+  }
+}
+.siteImage {
+  img {
+    width: 100%;
+  }
+}
+main {
+  .homeTitle {
+    background: #ff840b;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    @media (min-width: 768px) {
+      font-size: 46px;
+    }
+    @media (min-width: 1054px) {
+      font-size: 64px;
+    }
+  }
+  .slider {
+    margin: 10px 0;
+    h2 {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 7px;
+      color: #ff840b;
+      @media (min-width: 768px) {
+        font-size: 20px;
+      }
+      @media (min-width: 992px) {
+        font-size: 24px;
+      }
+    }
+    p {
+      font-size: 6px;
+      margin-bottom: 0;
+      @media (min-width: 768px) {
+        font-size: 14px;
+      }
+    }
+    .sliderImage,
+    .sliderText {
+      margin: auto;
+    }
+    .readMore{
+        margin:1rem auto;
+        display: none;
+        padding: 10px;
+        background: #ff840b;
+        color: #fff;
+        width: 150px;
+        text-align: center;
+        @media(min-width: 768px){
+            display: block;
+        }
+    }
+  }
+  .features {
+    h2 {
+      font-size: 16px;
+      text-align: center;
+      font-weight: 500;
+      color: #ff840b;
+      @media (min-width: 768px) {
+        font-size: 26px;
+      }
+      @media (min-width: 992px) {
+        font-size: 35px;
+      }
+    }
+    ul {
+      margin: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      li {
+        img {
+          width: 80px;
+        }
+        color: #ff840b;
+        h3 {
+          font-weight: bold;
+          font-size: 8px;
+          margin: 10px 0;
+        }
+        width: 80px;
+        text-align: center;
+        text-transform: uppercase;
+        @media (min-width: 768px) {
+          width: 230px;
+          img {
+            width: 140px;
+          }
+          h3{
+              font-size: 21px;
+          }
+        }
+      }
+    }
+  }
+  .page{
+    margin: 1rem 0;
+    text-align: center;
+    h1{
+      font-weight: 600;
+    }
+    .card{
+      border: none;
+      margin-bottom: 0.75rem;
+    }
+    .card-header{
+      background: #ff840b;
+      padding: 0;
+      h2{
+        button{
+          color: #fff!important;
+          font-weight: 500;
+          font-size: 18px;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+    }
+    .card-body{
+      padding: 0;
+      .table{
+        thead{
+          font-weight: 900;
+        }
+        td{
+          font-size: 13px;
+          padding: 5px;
+          border-left: none!important;
+          &:last-child{
+            border-right: none!important;
+          }
+        }
+
+      }
+    }
+  }
+}
+footer {
+  background: #ff840b;
+  padding: 80px 0;
+  .adressWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  address {
+    text-align: center;
+    max-width: 440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 400;
+    img {
+      width: 100%;
+    }
+    margin-bottom: 0;
+    .footerContacts {
+      display: flex;
+      justify-content: space-between;
+      margin: 14px 0;
+    }
+    span,
+    a {
+      position: relative;
+      padding-left: 30px;
+      &:before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        background-position: center;
+        background-size: cover;
+        margin: auto;
+      }
+    }
+    a {
+      &:before {
+        background: url("../img/mail.png") no-repeat;
+      }
+    }
+    span {
+      &:before {
+        background: url("../img/phone.png") no-repeat;
+      }
+    }
+  }
+  .formWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+      max-width: 440px;
+      width: 100%;
+      legend{
+          color: #fff;
+          font-size: 21px;
+          font-weight: 400;
+          text-align: center;
+      }
+      textarea {
+        resize: none;
+      }
+      button {
+        margin: auto;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .response {
+        height: 50px;
+        #alertError,
+        #alertSuccess {
+          display: none;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .copyright{
+      color: #fff;
+      text-align: center;
+      font-size: 8px;
+      font-weight: 400;
+      @media(min-width: 768px){
+        font-size: 18px;
+      }
+  }
 }
