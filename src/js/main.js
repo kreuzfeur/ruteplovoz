@@ -1,4 +1,3 @@
-
 const owlProps = {
     items: 1,
     margin: 10,
@@ -13,7 +12,8 @@ $(document).ready(function () {
         owlProps.nav = false;
     }
     $('.owl-carousel').owlCarousel(owlProps);
-    $('.owl-nav').append('<a href="" class="owlReadMore">Подробнее</a>')
+    $('.owl-nav').append('<a href="" class="owlReadMore">Подробнее</a>');
+    $('#menu-mobilemenu').append(`<div class="menuLogo"> <a href="https://ruteplovoz.ru"> <img src="<?php bloginfo('template_directory')?>/src/img/logo.png" alt="ruteplovoz.ru логотип" /> </a> </div>`)
     $('#burger').click(() => toggleBurger());
     $('#callbackForm').submit(function (e) { 
         e.preventDefault();
@@ -33,7 +33,7 @@ $(document).ready(function () {
 });
 const toggleBurger = () => {
     $('#burger').toggleClass('active');
-    $('#mobileMenu').toggleClass('mobileMenuActive');
+    $('#menu-mobilemenu').toggleClass('mobileMenuActive');
     $(document.body).toggleClass('overflow-y');
 }
 const getFormData = () => {
